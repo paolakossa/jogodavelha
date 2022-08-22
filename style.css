@@ -1,0 +1,128 @@
+:root{
+	--azul: #1B0BCE;
+	--branco: #FFFFFF;
+	--azul-claro: #2C8DFF;
+	--laranja-claro:#E8AB74;
+	--preto-transparente:rgba(0 ,0 ,0,  0.6);
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background-color: var(--azul);
+	height: 100vh;
+	width: 100vw;
+}
+
+.board{
+	display: grid;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	grid-template-columns: repeat(3, auto); 
+
+
+}
+
+.board.x .cell:not(.x):not(.circle):hover,
+.board.circle .cell:not(.x):not(.circle):hover{
+	opacity: .3;
+}
+
+/*Célula*/
+.cell{ 
+	width: 100px;
+	height: 100px;
+	border:3px solid rgba(255,255,255, .2);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+
+ }
+
+ .cell.x, .cell.circle{
+ 	cursor: not-allowed;
+ }
+
+ .cell:nth-child(1),
+ .cell:nth-child(2),
+ .cell:nth-child(3){
+ 	border-top:none;
+ }
+
+.cell:nth-child(1),
+ .cell:nth-child(4),
+ .cell:nth-child(7){
+ 	border-left: none;
+ }
+
+ .cell:nth-child(7),
+ .cell:nth-child(8),
+ .cell:nth-child(9) {
+ 	border-bottom: none;
+ }
+
+.cell:nth-child(3),
+ .cell:nth-child(6),
+ .cell:nth-child(9){
+ 	border-right: none;
+ }
+
+ /*x*/
+ .cell.x,
+ .board.x .cell:not(.x):not(.circle):hover {
+ 	content:url("img/Group 2.svg");
+
+ 	}
+ 
+ /*circle*/
+ .cell.circle,
+ .board.circle .cell:not(.x):not(.circle):hover {
+ 	content: url("img/Ellipse 1.svg");
+ 	
+ }
+
+
+/*Mensagem de vitória*/
+.winnig-message{
+	display: none;
+	position: fixed;
+	top:0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--preto-transparente);
+	flex-direction: column;
+
+}
+
+.winnig-message-button{
+	font-size: 2.5rem;
+	background-color: var(--azul-claro);
+	padding: 10px 15px;
+	cursor: pointer;
+	border-radius: 5px;
+	border:none;
+	margin-top: 11px;
+	color: var(--branco);
+}
+
+.winnig-message-button:hover{
+	color: var(--azul-claro);
+	background-color:var(--branco);
+}
+
+.winnig-message-text{
+	font-size: 5rem;
+	color: var(--branco);
+}
+
