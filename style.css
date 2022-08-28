@@ -126,3 +126,6 @@ body{
 	color: var(--branco);
 }
 
+.show-winnig-message{
+	display: flex;
+}
